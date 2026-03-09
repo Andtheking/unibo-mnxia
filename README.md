@@ -1,5 +1,7 @@
 #  Metodi Numerici per Intelligenza Artificiale
 ## Informazioni sul corso
+> Anno: 2025/2026
+
 > Docenti: Damiana Lazzaro, Lorenzo Pellegrini
 
 ### Sito del corso
