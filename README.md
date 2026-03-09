@@ -12,6 +12,7 @@ https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/inseg
 ### Informazioni preliminari
 - Con `np` si intende `numpy`, si presume quindi il pacchetto sia importato come `import numpy as np`; 
 - Con `arr` si intende una variabile qualsiasi di tipo `np.array` (quindi un array di Numpy).
+- Con `size` si intende un'espressione Size-Like, ovvero una tupla di tipo `(n, m, ...)`.
 
 | Comando | Cosa fa |
 | -- | ----------- |
