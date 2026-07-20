@@ -6,11 +6,11 @@ def gauss_seidel_sor(A,b,x0,toll,it_max,omega):  # Definisce la funzione per il 
 
     errore=1+toll                                 # Inizializza l'errore con un valore più grande di toll
 
-    d= np.diag(A)
-    D= np.diag(d)
+    d= np.diag(A) # TODO
+    D= np.diag(d) # TODO
     
-    E = np.tril(A, -1)
-    F = np.triu(A, 1)
+    E = np.tril(A, -1) # TODO
+    F = np.triu(A, 1) # TODO
 
     Momega = D+omega*E                             # Matrice M modificata per SOR: D + ωE
     Nomega = (1-omega)*D-omega*F                   # Matrice N modificata per SOR

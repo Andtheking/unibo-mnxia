@@ -15,7 +15,7 @@ def falsi(fname, a, b, maxit, tolx,tolf):
  """
  fa=fname(a)
  fb=fname(b)
- if np.sign(fa) * np.sign(fb) >= 0: #to do
+ if np.sign(fa) * np.sign(fb) >= 0: # TODO: Teorema del Segno
      print("Non è possibile applicare il metodo di falsa posizione \n")
      return None, None,None
 
@@ -28,24 +28,24 @@ def falsi(fname, a, b, maxit, tolx,tolf):
  xk=None
  xprec=a
  
- while abs(fxk) > tolf and errore > tolx and it < maxit: #to do 
-        xk = a - fa * (b - a) / (fb - fa) # FORMULA RETTE SECANTI #to do 
+ while abs(fxk) > tolf and errore > tolx and it < maxit: # TODO: tolleranza y and tolleranza x and iterazione
+        xk = a - fa * (b - a) / (fb - fa) # TODO: FORMULA RETTE SECANTI 
          
         fxk=fname(xk)
         if np.abs(fxk)<tolf:
           return xk, it, np.array(v_xk)
     
-        if np.sign(fxk) * np.sign(fa) < 0: #  #la radice si trova nell'intervallo [a, xk].
+        if np.sign(fxk) * np.sign(fa) < 0: # TODO: la radice si trova nell'intervallo [a, xk].
           b = xk
-          fb=fxk
-        elif np.sign(fxk) * np.sign(fb) < 0: #to do   #la radice si trova nell'intervallo [xk, b].
+          fb = fxk
+        elif np.sign(fxk) * np.sign(fb) < 0: # TODO: la radice si trova nell'intervallo [xk, b].
           a = xk
-          fa=fxk
+          fa = fxk
     
         if xk!=0:
-             errore = abs(xk - xprec) / abs(xk) # errore relativo $todo
+             errore = abs(xk - xprec) / abs(xk) # TODO: errore relativo
         else:
-             errore = abs(xk - xprec) # errore assoluto #to do
+             errore = abs(xk - xprec) # TODO: errore assoluto 
         
         xprec=xk
         v_xk.append(xk)

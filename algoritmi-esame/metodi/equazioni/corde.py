@@ -17,24 +17,24 @@ def corde(fname,a,b,coeff_ang,x0,tolx,tolf,nmax):
         print("Metodo delle corde: coefficiente angolare nullo")
         return None, None, None
                     
-    while erroref >= tolf and errorex >= tolx and it < nmax: #to do
+    while erroref >= tolf and errorex >= tolx and it < nmax: # TODO: Errore Y, Errore X, Iterazione
         
         fxk=fname(xk)
 
     
-        d = fxk / coeff_ang
+        d = fxk / coeff_ang # TODO: Y / pendenza
         '''
         #xk= ascissa del punto di intersezione tra  la retta che passa per il punto
         (xi,f(xi)) e ha pendenza uguale a coeff_ang  e l'asse x
         '''
-        xk1= xk - d
+        xk1= xk - d # TODO: togli d da xk
         
         
         fxk1=fname(xk1)
         if xk1!=0:
-            errorex = abs(d) / abs(xk1) # todo
+            errorex = abs(d) / abs(xk1) # TODO: Errore relativo
         else:
-            errorex = abs(d) # to do 
+            errorex = abs(d) # TODO: Errore assoluto
         
         erroref=np.abs(fxk1)
         

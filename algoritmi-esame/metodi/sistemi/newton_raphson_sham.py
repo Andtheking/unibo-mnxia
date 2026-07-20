@@ -18,9 +18,9 @@ def newton_raphson_sham(initial_guess,F_numerical, J_numerical, tolX, tolF, upda
 
     # 
     while erroreX >= tolX and erroreF >= tolF and it < max_iterations: #to do 
-    
+        
         if it % update == 0:
-            jx = np.array(J_numerical(X[0], X[1]), dtype=float) #to do 
+            jx = np.array(J_numerical(X[0], X[1]), dtype=float) # TODO: Jacobiana
 
             # Controlla che la Jacobiana sia invertibile
             if np.linalg.matrix_rank(jx) < jx.shape[0]: #to do 

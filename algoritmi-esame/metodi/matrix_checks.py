@@ -1,5 +1,21 @@
 import numpy as np
 
+# QUADRATA (m == n)
+# ├── Piccola:
+# │   ├── Simm. Def. Pos. ──> Cholesky
+# │   └── Altro:
+# │       ├── Ben condizionata (cond(A) ≈ 1) ──> LUSolve (Gauss)
+# │       └── Mal condizionata ──> QRSolve
+# └── Grande:
+#     ├── Simm. Def. Pos. ──> Gauss-Seidel, SOR, Steepest Descent, Conj. Gradient
+#     └── Altro ──> Jacobi, Gauss-Seidel
+#
+# NON QUADRATA (m != n)
+# └── Rango massimo (rank(A) == shape[0])?
+#     ├── Sì:
+#     │   ├── Ben condizionata (cond(A) ≈ 1) ──> EQNORM
+#     │   └── Mal condizionata ──> QRLS
+#     └── No ──> SVDLS
 
 def matrix_checks(matrix: np.matrix):
     """_Stampa le informazioni per capire quale algoritmo utilizzare per risolvere un sistema del tipo Ax = b_

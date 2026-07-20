@@ -15,11 +15,11 @@ def newton(fname,fpname,x0,tolx,tolf,nmax):
     errorex=1+tolx
     erroref=1+tolf
     
-    while errorex >= tolx and erroref >= tolf and it < nmax: # TODO: Tolleranze errori e  
+    while errorex >= tolx and erroref >= tolf and it < nmax: # TODO: Tolleranze errori e iterazione
         
         fxk=fname(xk)
         fpxk=fpname(xk)
-        if abs(fpxk) <= np.spacing(1): #to do 
+        if abs(fpxk) <= np.spacing(1): # TODO: La derivata deve essere maggiore di zero (spacing errore macchina)
             print("Newton: La derivata prima si annulla ")
             return None,None,None
 
@@ -36,7 +36,7 @@ def newton(fname,fpname,x0,tolx,tolf,nmax):
         if xk1 != 0:
             errorex = abs(d) / abs(xk1) # TODO: Errore relativo
         else:
-            errorex = abs(d) #to do 
+            errorex = abs(d) # TODO: Errore assoluto
         
         erroref = np.abs(fxk1)
 

@@ -8,8 +8,8 @@ def gauss_seidel(A,b,x0,toll,it_max):   # Definisce la funzione che implementa i
     d= np.diag(A)
     D= np.diag(d)
 
-    E= np.tril(D, -1)
-    F= np.triu(D, 1)
+    E= np.tril(A, -1)
+    F= np.triu(A, 1)
 
     M= D + E # TODO  
     N= -F  # TODO

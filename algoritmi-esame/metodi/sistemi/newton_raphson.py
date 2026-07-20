@@ -16,36 +16,36 @@ def newton_raphson(initial_guess, F_numerical, J_numerical, tolX, tolF, max_iter
     errore = []
 
      
-    while erroreF >= tolF and erroreX >= tolX: #to do 
+    while erroreF >= tolF and erroreX >= tolX: # TODO: Tolleranze
         # Calcolo della matrice Jacobiana nel punto corrente X
         jx = np.array(J_numerical(X[0], X[1]), dtype=float) # TODO: Jacobiana  
-
-        if np.linalg.matrix_rank(jx) < jx.shape[0]: #to do 
+    
+        if np.linalg.matrix_rank(jx) < jx.shape[0]: # TODO: Rango non massimo 
             print("La matrice Jacobiana calcolata nell'iterato corrente non è a rango massimo")
             return None, None, None
 
         # Calcolo del valore della funzione F nel punto corrente
-        fx = np.array(F_numerical(X[0], X[1]), dtype=float).squeeze() # to do
+        fx = np.array(F_numerical(X[0], X[1]), dtype=float).squeeze() # TODO: Funzione, squeeze toglie dimensioni inutili
 
         
-        s = np.linalg.solve(jx, -fx) #to do 
+        s = np.linalg.solve(jx, -fx) # TODO: Soluzione: jacobiana, -funzione
 
         # Aggiorno l'iterato
-        Xnew = X + s #to do 
+        Xnew = X + s # TODO: Vecchia soluzione + soluzione = nuova soluzione
 
         # Calcolo dell'errore relativo tra iterati successivi
         # usando la norma 1
         normaXnew = np.linalg.norm(Xnew, 1)
         if normaXnew != 0:
-            erroreX = np.linalg.norm(s, 1) / normaXnew #TODO
+            erroreX = np.linalg.norm(s, 1) / normaXnew # TODO
         else:
-            erroreX = np.linalg.norm(s, 1) #TODO
+            erroreX = np.linalg.norm(s, 1) # TODO
 
         # Salvo l'errore relativo per analisi successive
         errore.append(erroreX)
 
         # Calcolo di F nel nuovo punto
-        fxnew = np.array(F_numerical(Xnew[0], Xnew[1]), dtype=float).squeeze() #TODO
+        fxnew = np.array(F_numerical(Xnew[0], Xnew[1]), dtype=float).squeeze() # TODO: Funzione come prima ma con Xnew
         erroreF = np.linalg.norm(fxnew, 1)
 
         # Aggiorno l'iterato corrente

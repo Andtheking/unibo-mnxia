@@ -13,19 +13,19 @@ def secanti(fname,xm1,x0,tolx,tolf,nmax):
     xk=x0
     xk1=None #Inizializzare xk1 fa sì che se non si entra nel while la funzionenon dà errore, dovendo restituire xk1
     
-    while errorex >= tolx and erroref >= tolf and it < nmax:
+    while errorex >= tolx and erroref >= tolf and it < nmax: # TODO: Errorex Errorey Iterazioni
         fxkm1=fname(xkm1)
         fxk=fname(xk)
-        c_ang_k= (fxk - fxkm1) / (xk - xkm1) #to do 
-        if np.abs(c_ang_k) <= np.spacing(1): # TODO: Adesso è np.abs 
+        c_ang_k= (fxk - fxkm1) / (xk - xkm1) # TODO: coeff. angolare
+        if np.abs(c_ang_k) <= np.spacing(1): # TODO: coeff. troppo piccolo 
             print("Coefficiente angolare secanti troppo piccolo")
             return None, None, None
             
-        d = fxk / c_ang_k #to do 
+        d = fxk / c_ang_k # TODO: spostamento
         
         #xk1 è l'ascissa del punto di intersezione tra la retta che passa due iterati precedenti e l'asse x
-        xk1 = xk - d #to do 
-            
+        xk1 = xk - d # TODO: Nuova x spostata
+        
         fxk1=fname(xk1)
         v_xk.append(xk1)
         #Criteri di arresto

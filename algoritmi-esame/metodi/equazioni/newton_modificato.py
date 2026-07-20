@@ -12,11 +12,11 @@ def newton_modificato(fname,fpname,m,x0,tolx,tolf,nmax):
     it = 0
     errorex=1+tolx
     erroref=1+tolf
-    while errorex >= tolx and erroref >= tolf and it < nmax:
+    while errorex >= tolx and erroref >= tolf and it < nmax: # TODO: Errore x, errore y, iterazione
         
         fxk=fname(xk)
         fpxk=fpname(xk)
-        if abs(fpxk) <= np.spacing(1): #todo   #Se la derivata prima e' pià piccola della precisione di macchina stop
+        if abs(fpxk) <= np.spacing(1): # TODO: Se la derivata prima e' pià piccola della precisione di macchina stop
             print("Newton Modificato: La derivata prima si annulla ")
             return None,None,None
     
@@ -29,9 +29,9 @@ def newton_modificato(fname,fpname,m,x0,tolx,tolf,nmax):
         xk1 = xk - m * d # TODO:  Rispetto al Newton normale qui si aggiunge il parametro m
         fxk1=fname(xk1)
         if xk1!=0:
-            errorex = abs(d) / abs(xk1) # to do 
+            errorex = abs(d) / abs(xk1) # TODO: Errore relativo
         else:
-            errorex = abs(d)
+            errorex = abs(d) # TODO: Errore assoluto
         
         erroref=np.abs(fxk1)
         v_xk.append(xk1)
