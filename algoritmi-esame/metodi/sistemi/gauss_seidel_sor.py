@@ -22,21 +22,21 @@ def gauss_seidel_sor(A,b,x0,toll,it_max,omega):  # Definisce la funzione per il 
 
     print("raggio spettrale Gauss-Seidel SOR ", raggiospettrale)  # Stampa il raggio spettrale
 
-    M= D + E 
-    N= -F  
+    M= D + E
+    N= -F
 
     it=0                                         # Contatore iterazioni
 
-    
-    
+
+
     er_vet=[]                                    # Lista per memorizzare gli errori
 
-    while errore >= toll and it < it_max: #to do          # Ciclo iterativo con criterio di arresto
+    while it<=it_max and errore>=toll: #to do          # Ciclo iterativo con criterio di arresto
 
-        
-        xtilde, _ = Lsolve(M, b + N @ x0) #to do  
 
-        x = (1 - omega) * x0 + omega * xtilde #to do  
+        xtilde, _ = Lsolve(M, b + N @ x0) #to do
+
+        x = (1 - omega) * x0 + omega * xtilde #to do
 
         errore= np.linalg.norm(x - x0) / np.linalg.norm(x) #to do   # Errore relativo tra iterazioni successive
 
